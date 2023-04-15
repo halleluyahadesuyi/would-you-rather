@@ -6,14 +6,14 @@ import { setAuthedUser } from "../actions/authedUser";
 
 function Navbar({ id }) {
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const authedUser = useSelector((state) => state.authedUser);
   const user = useSelector((state) => state.users[id]);
   const { avatarURL, name } = user;
 
   const handleLogout = () => {
     dispatch(setAuthedUser(null));
-    history.push("/login");
+    navigate("/");
   };
 
   return (

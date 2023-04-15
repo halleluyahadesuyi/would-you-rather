@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { formatQuestion, formatDate } from "../utils/helper";
 import PollResults from "./PollResults";
 import { handleSaveAnswer } from "../actions/shared";
 import { saveAnswerToUser } from "../actions/users";
 
-function QuestionPage(props) {
-  const { id } = props.match.params;
+function QuestionPage() {
+  const { id } = useParams();
   const dispatch = useDispatch();
   const authedUser = useSelector((state) => state.authedUser);
   const users = useSelector((state) => state.users);

@@ -33,18 +33,21 @@ function App() {
         <div>
           <LoadingBar />
           {loading ? (
-            <Route path="/" element={<SignIn />} />
+            <Routes>
+              <Route path="/" element={<SignIn />} />
+            </Routes>
           ) : (
             <>
               <LoadingBar />
               <Navbar id={authedUser} />
               <Routes>
+                <Route path="/" exact element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/question/:id" element={<QuestionPage />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
                 <Route path="/new" element={<NewQuestion />} />
-                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/not-found" element={<NotFound />} />
-                <Route path="*" element={<Navigate to="/not-found" />} />
+                {/* <Route path="*" element={<Navigate to="/not-found" />} /> */}
               </Routes>
             </>
           )}
