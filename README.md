@@ -10,6 +10,7 @@ Clone the repository and use npm install to install the dependencies
 $ git clone https://github.com/halleluyahadesuyi/would-you-rather.git
 $ cd would-you-rather
 $ npm install
+$ npm start
 
 ## Data
 
