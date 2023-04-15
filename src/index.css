@@ -146,6 +146,27 @@ button:focus {
 .dropdown-item:hover {
   cursor: pointer;
 }
+
+/* Unaswered and Answered Buttons */
+.unanswered-answered-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.unanswered-answered-btn button {
+  border: 1px solid purple;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.unanswered-answered-btn button:hover,
+.unanswered-answered-btn button:focus {
+  background: grey;
+  color: white;
+}
+
 /* New question Form */
 .new-form {
   display: flex;

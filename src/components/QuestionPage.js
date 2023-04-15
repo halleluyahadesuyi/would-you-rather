@@ -99,6 +99,13 @@ function QuestionPage() {
                 Submit
               </button>
             )}
+              {/* <button
+                type="submit"
+                className="btn"
+                disabled={answerSubmitted}
+              >
+                Submit
+              </button> */}
           </form>
         </div>
         {answerSubmitted && <PollResults id={id}></PollResults>}
