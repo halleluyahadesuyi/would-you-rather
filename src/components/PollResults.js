@@ -1,11 +1,11 @@
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 function PollResults({ id }) {
-  const question = useSelector(state => state.questions[id]);
+  const question = useSelector(state => state.questions[id])
   const handleVotes = votes => {
-    return (votes / 10) * 100;
-  };
+    return (votes / 10) * 100
+  }
 
   return (
     <div className="question-result">
@@ -30,10 +30,10 @@ function PollResults({ id }) {
         </div>
       </div>
       <Link to="/dashboard" className="go-back center">
-        Go back
+        Return
       </Link>
     </div>
-  );
+  )
 }
 
-export default PollResults;
+export default PollResults

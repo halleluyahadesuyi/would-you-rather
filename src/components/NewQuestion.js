@@ -1,34 +1,34 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { handleSaveQuestion } from "../actions/shared";
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Navigate } from "react-router-dom"
+import { handleSaveQuestion } from "../actions/shared"
 
 function NewQuestion() {
-  const [optionOne, setOptionOne] = useState("");
-  const [optionTwo, setOptionTwo] = useState("");
-  const [toDashboard, setToDashboard] = useState(false);
+  const [optionOne, setOptionOne] = useState("")
+  const [optionTwo, setOptionTwo] = useState("")
+  const [toDashboard, setToDashboard] = useState(false)
 
-  const dispatch = useDispatch();
-  const authedUser = useSelector(state => state.authedUser);
+  const dispatch = useDispatch()
+  const authedUser = useSelector(state => state.authedUser)
 
   const handleChangeOptionOne = (e) => {
-    setOptionOne(e.target.value);
-  };
+    setOptionOne(e.target.value)
+  }
 
   const handleChangeOptionTwo = (e) => {
-    setOptionTwo(e.target.value);
-  };
+    setOptionTwo(e.target.value)
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(handleSaveQuestion(optionOne, optionTwo, authedUser));
-    setOptionOne("");
-    setOptionTwo("");
-    setToDashboard(true);
-  };
+    e.preventDefault()
+    dispatch(handleSaveQuestion(optionOne, optionTwo, authedUser))
+    setOptionOne("")
+    setOptionTwo("")
+    setToDashboard(true)
+  }
 
   if (toDashboard) {
-    return <Navigate to="/dashboard" />;
+    return <Navigate to="/dashboard" />
   }
 
   return (
@@ -69,7 +69,7 @@ function NewQuestion() {
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default NewQuestion;
+export default NewQuestion

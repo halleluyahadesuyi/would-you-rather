@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import PollResults from "./PollResults";
-import Questions from "./Questions";
+import { useState } from "react"
+import { useSelector } from "react-redux"
+import PollResults from "./PollResults"
+import Questions from "./Questions"
 
 function Dashboard() {
   const [unanswered, setUnanswered] = useState(true)
@@ -10,15 +9,7 @@ function Dashboard() {
     Object.keys(state.questions).sort(
       (a, b) => state.questions[b].timestamp - state.questions[a].timestamp
     )
-  );
-
-  // function handleUnanswered() {
-  //   return unanswered ? 
-  // }
-
-  // function handleUnanswered() {
-  //   setUnanswered(true)
-  // }
+  )
 
   return (
     <div>
@@ -39,21 +30,16 @@ function Dashboard() {
         (
           <ul>
             {questionIds.map((id) => (
-              <li key={id}>
-                <Questions id={id}
-                
-               {...<Link to={`/question/${id}`} className="submit-poll">
-            Show Poll Answers
-          </Link>}
-                />
+              <li key={id} className="answeredPoll">
                 <PollResults id={id}/>
+                <Questions id={id} />
               </li>
             ))}
           </ul>
         )
       }
     </div>
-  );
+  )
 }
 
-export default Dashboard;
+export default Dashboard

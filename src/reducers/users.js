@@ -2,7 +2,7 @@ import {
   RECEIVE_USERS,
   SAVE_QUESTION_TO_USER,
   SAVE_ANSWER_TO_USER
-} from "../actions/users";
+} from "../actions/users"
 
 export default function users(state = {}, action) {
   switch (action.type) {
@@ -10,20 +10,20 @@ export default function users(state = {}, action) {
       return {
         ...state,
         ...action.users
-      };
+      }
 
     case SAVE_QUESTION_TO_USER:
-      const { question } = action;
+      const { question } = action
       return {
         ...state,
         [question.author]: {
           ...state[question.author],
           questions: state[question.author].questions.concat([question.id])
         }
-      };
+      }
 
     case SAVE_ANSWER_TO_USER:
-      const { authedUser, qid, answer } = action;
+      const { authedUser, qid, answer } = action
       return {
         ...state,
         [authedUser]: {
@@ -33,8 +33,8 @@ export default function users(state = {}, action) {
             [qid]: answer
           }
         }
-      };
+      }
     default:
-      return state;
+      return state
   }
 }

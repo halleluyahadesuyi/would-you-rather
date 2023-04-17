@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"
 
 const Users = ({ id }) => {
-  const user = useSelector((state) => state.users[id]);
+  const user = useSelector((state) => state.users[id])
 
-  const { avatarURL, name, handle } = user;
+  const { avatarURL, name, handle } = user
   return (
     <div className="user-info">
       <div className="avatar">
@@ -14,7 +14,7 @@ const Users = ({ id }) => {
         <span className="handle">{handle}</span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Users;
+export default Users

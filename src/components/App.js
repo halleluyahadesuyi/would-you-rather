@@ -1,31 +1,30 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import {
   BrowserRouter as Router,
-  Navigate,
   Routes,
   Route
-} from "react-router-dom";
-import LoadingBar from "react-redux-loading";
-import { handleInitialData } from "../actions/shared";
-import SignIn from "./SignIn";
-import Navbar from "./Navbar";
-import Dashboard from "./Dashboard";
-import QuestionPage from "./QuestionPage";
-import NewQuestion from "./NewQuestion";
-import Leaderboard from "./Leaderboard";
-import NotFound from "./NotFound";
+} from "react-router-dom"
+import LoadingBar from "react-redux-loading"
+import { handleInitialData } from "../actions/shared"
+import SignIn from "./SignIn"
+import Navbar from "./Navbar"
+import Dashboard from "./Dashboard"
+import QuestionPage from "./QuestionPage"
+import NewQuestion from "./NewQuestion"
+import Leaderboard from "./Leaderboard"
+import NotFound from "./NotFound"
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const { authedUser, loading } = useSelector((state) => ({
     authedUser: state.authedUser,
     loading: state.authedUser === null,
-  }));
+  }))
 
   useEffect(() => {
-    dispatch(handleInitialData());
-  }, [dispatch]);
+    dispatch(handleInitialData())
+  }, [dispatch])
 
   return (
     <Router>
@@ -47,14 +46,13 @@ function App() {
                 <Route path="/leaderboard" element={<Leaderboard />} />
                 <Route path="/new" element={<NewQuestion />} />
                 <Route path="/not-found" element={<NotFound />} />
-                {/* <Route path="*" element={<Navigate to="/not-found" />} /> */}
               </Routes>
             </>
           )}
         </div>
       </>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

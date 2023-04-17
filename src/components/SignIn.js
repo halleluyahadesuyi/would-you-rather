@@ -1,25 +1,25 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { setAuthedUser } from "../actions/authedUser";
-import Users from "./Users";
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Navigate } from "react-router-dom"
+import { setAuthedUser } from "../actions/authedUser"
+import Users from "./Users"
 
 const SignIn = () => {
-  const dispatch = useDispatch();
-  const userIds = useSelector((state) => Object.keys(state.users));
-  const [toDashboard, setToDashboard] = useState(false);
+  const dispatch = useDispatch()
+  const userIds = useSelector((state) => Object.keys(state.users))
+  const [toDashboard, setToDashboard] = useState(false)
 
   const handleAuthedUser = (authedUserId) => {
     new Promise((res, rej) => {
-      setTimeout(() => res(), 500);
+      setTimeout(() => res(), 500)
     }).then(() => {
-      dispatch(setAuthedUser(authedUserId));
-      setToDashboard(true);
-    });
-  };
+      dispatch(setAuthedUser(authedUserId))
+      setToDashboard(true)
+    })
+  }
 
   if (toDashboard) {
-    return <Navigate to="/dashboard" />;
+    return <Navigate to="/dashboard" />
   }
 
   return (
@@ -36,7 +36,7 @@ const SignIn = () => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default SignIn;
+export default SignIn

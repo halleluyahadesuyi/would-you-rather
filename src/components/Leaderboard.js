@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"
 
 function Leaderboard() {
-  const users = useSelector((state) => state.users);
-  const userIds = Object.keys(users);
+  const users = useSelector((state) => state.users)
+  const userIds = Object.keys(users)
 
-  console.log(users);
+  console.log(users)
   return (
     <div className="container mt-10">
       <table className="table">
@@ -31,7 +31,7 @@ function Leaderboard() {
         </tbody>
       </table>
     </div>
-  );
+  )
 }
 
-export default Leaderboard;
+export default Leaderboard

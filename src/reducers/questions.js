@@ -2,7 +2,7 @@ import {
   RECEIVE_QUESTIONS,
   SAVE_QUESTION,
   SAVE_ANSWER_To_QUESTION
-} from "../actions/questions";
+} from "../actions/questions"
 
 export default function questions(state = {}, action) {
   switch (action.type) {
@@ -10,17 +10,17 @@ export default function questions(state = {}, action) {
       return {
         ...state,
         ...action.questions
-      };
+      }
 
     case SAVE_QUESTION:
-      const { question } = action;
+      const { question } = action
       return {
         ...state,
         [question.id]: question
-      };
+      }
 
     case SAVE_ANSWER_To_QUESTION:
-      const { qid, authedUser, answer } = action;
+      const { qid, authedUser, answer } = action
       return {
         ...state,
         [qid]: {
@@ -30,9 +30,9 @@ export default function questions(state = {}, action) {
             votes: state[qid][answer].votes.concat(authedUser)
           }
         }
-      };
+      }
 
     default:
-      return state;
+      return state
   }
 }

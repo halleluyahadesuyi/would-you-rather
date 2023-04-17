@@ -1,20 +1,20 @@
-import { useSelector, useDispatch } from "react-redux";
-import { NavLink, Link, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortDown, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-import { setAuthedUser } from "../actions/authedUser";
+import { useSelector, useDispatch } from "react-redux"
+import { NavLink, Link, useNavigate } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSortDown, faSignOutAlt } from "@fortawesome/free-solid-svg-icons"
+import { setAuthedUser } from "../actions/authedUser"
 
 function Navbar({ id }) {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const authedUser = useSelector((state) => state.authedUser);
-  const user = useSelector((state) => state.users[id]);
-  const { avatarURL, name } = user;
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const authedUser = useSelector((state) => state.authedUser)
+  const user = useSelector((state) => state.users[id])
+  const { avatarURL, name } = user
 
   const handleLogout = () => {
-    dispatch(setAuthedUser(null));
-    navigate("/");
-  };
+    dispatch(setAuthedUser(null))
+    navigate("/")
+  }
 
   return (
     <nav className="navbar">
@@ -64,7 +64,7 @@ function Navbar({ id }) {
         )}
       </ul>
     </nav>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

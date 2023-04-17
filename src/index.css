@@ -184,6 +184,13 @@ button:focus {
   flex-wrap: wrap;
 }
 
+.answeredPoll {
+  background-color: rgb(221, 144, 144);
+  border-radius: 5px;
+  padding: 3rem 0;
+  margin: 8rem 0;
+}
+
 .form-group > .option-a,
 .form-group > .option-b {
   background: var(--color-white);
