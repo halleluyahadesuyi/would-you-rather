@@ -5,7 +5,7 @@ import {
   Routes,
   Route
 } from "react-router-dom"
-import LoadingBar from "react-redux-loading"
+import LoadingBar from "react-redux-loading-bar"
 import { handleInitialData } from "../actions/shared"
 
 import SignIn from "./SignIn"

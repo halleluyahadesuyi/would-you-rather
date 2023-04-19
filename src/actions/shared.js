@@ -1,4 +1,4 @@
-import { showLoading, hideLoading } from "react-redux-loading"
+import { showLoading, hideLoading } from "react-redux-loading-bar"
 import { getInitialData, saveQuestion, saveQuestionAnswer } from "../utils/api"
 import { receiveQuestions } from "./questions"
 import { receiveUsers, saveQuestionToUser } from "./users"
