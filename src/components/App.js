@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 import LoadingBar from "react-redux-loading"
 import { handleInitialData } from "../actions/shared"
+
 import SignIn from "./SignIn"
 import Navbar from "./Navbar"
 import Dashboard from "./Dashboard"
