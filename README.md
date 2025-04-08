@@ -1,102 +1,71 @@
-# Would You Rather Project
+# Would You Rather App
 
-This is a simple Redux Web Application that allows users to log in as existing users to answer existing polls, create new polls, and see other users' scores on the leaderboard.
+An interactive polling app built using **React** and **Redux**, where users can log in, answer questions, create new ones, and track their score through a leaderboard.
 
-It is built with React, Redux, React Router, and React Thunk
+## Features
 
-## Getting Started
-Clone the repository and use npm install to install the dependencies
+- User authentication with custom avatars
+- Ability to create and answer polling questions
+- View real-time leaderboard with user scores
+- Built with **React**, **Redux**, **React Router**, and **React Thunk**
 
-$ git clone https://github.com/halleluyahadesuyi/would-you-rather.git
-$ cd would-you-rather
-$ npm install
-$ npm start
+## Installation
 
-## Data
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/halleluyahadesuyi/would-you-rather.git
+    ```
+2. Install the required dependencies:
+    ```bash
+    cd would-you-rather
+    npm install
+    ```
+3. Start the development server:
+    ```bash
+    npm start
+    ```
+> 📍 The app will run on `localhost:3000`.
 
-There are two types of objects stored in the database file _DATA.js:
-
-* Users
-* Questions
+## 📄 Data Structure
 
 ### Users
-
-Users include:
-
-| Attribute    | Type             | Description           |
-|-----------------|------------------|-------------------         |
-| id                 | String           | The user’s unique identifier |
-| name          | String           | The user’s first name  and last name     |
-| avatarURL  | String           | The path to the image file |
-| questions | Array | A list of ids of the polling questions this user created|
-| answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
+Each user object includes:
+- `id` (string): Unique user identifier
+- `name` (string): User’s name
+- `avatarURL` (string): Link to the user's avatar
+- `questions` (array): List of IDs for questions the user created
+- `answers` (object): User's answers to questions (stores answers as keys: `optionOne` and `optionTwo`)
 
 ### Questions
+Each question object contains:
+- `id` (string): Unique question identifier
+- `author` (string): ID of the user who created the question
+- `timestamp` (string): Date and time when the question was created
+- `optionOne` (object): First option in the question
+- `optionTwo` (object): Second option in the question
 
-Questions include:
+### Voting
+Users vote by selecting one of the two available options.
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id                  | String | The question’s unique identifier |
-| author        | String | The author’s unique identifier |
-| timestamp | String | The time when the question was created|
-| optionOne | Object | The first voting option|
-| optionTwo | Object | The second voting option|
+## 💻 Usage
 
-### Voting Options
+- Login to the app to start answering questions.
+- Create new polling questions with two voting options.
+- Track your score on the leaderboard based on the number of polls answered.
 
-Voting options are attached to questions. They include:
+## 🔗 Live Demo
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| votes             | Array | A list that contains the id of each user who voted for that option|
-| text                | String | The text of the option |
+Since this is a React app running locally, it is best to follow the installation instructions above to see it in action.  
+You can also check out the live demo here:  
+[Live Demo](https://would-you-rather-web.netlify.app/).
 
-Your code will talk to the database via 4 methods:
+## Tech Stack
 
-* `_getUsers()`
-* `_getQuestions()`
-* `_saveQuestion(question)`
-* `_saveQuestionAnswer(object)`
+- **React**
+- **Redux**
+- **React Router**
+- **React Thunk**
 
-1) `_getUsers()` Method
+## 📄 License
 
-*Description*: Get all of the existing users from the database.  
-*Return Value*: Object where the key is the user’s id and the value is the user object.
-
-2) `_getQuestions()` Method
-
-*Description*: Get all of the existing questions from the database.  
-*Return Value*: Object where the key is the question’s id and the value is the question object.
-
-3) `_saveQuestion(question)` Method
-
-*Description*: Save the polling question in the database.  
-*Parameters*:  Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| author | String | The id of the user who posted the question|
-| optionOneText| String | The text of the first option |
-| optionTwoText | String | The text of the second option |
-
-*Return Value*:  An object that has the following properties: `id`, `author`, `optionOne`, `optionTwo`, `timestamp`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id | String | The id of the question that was posted|
-| author | String | The id of the user who posted the question|
-| optionOne | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-| optionTwo | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-|timestamp|String | The time when the question was created|
-
-4) `_saveQuestionAnswer(object)` Method
-
-*Description*: Save the answer to a particular polling question in the database.
-*Parameters*: Object that contains the following properties: `authedUser`, `qid`, and `answer`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| authedUser | String | The id of the user who answered the question|
-| qid | String | The id of the question that was answered|
-| answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
